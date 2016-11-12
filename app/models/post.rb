@@ -7,9 +7,13 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   validates :image, presence: true
-  has_attached_file :image, styles: {
-                                       :medium => "640x"
-                                     }
+  has_attached_file :image,
+  convert_options: {
+    :all => "-grayscale Rec709Luminance"
+  },
+  styles: {
+            :medium => "640x"
+          }
   validates_attachment_content_type :image, :content_type =>
  /\Aimage\/.*\Z/
   scope :of_followed_users, -> (following_users) { where user_id: following_users }
