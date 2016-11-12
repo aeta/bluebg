@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      %h3.text-center
+        Explore
+      %ul.notification-index-list
+        - @hashtags.each do |hashtag|
+          %li
+            = link_to "#" + hashtag.name, hashtag_path(hashtag.name)

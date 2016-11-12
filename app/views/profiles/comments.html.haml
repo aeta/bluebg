@@ -1,0 +1,15 @@
+= render 'userinfo'
+
+- if @user.comments.count > 0
+  .text-center
+    %h3 Comments by
+    = @user.user_name
+
+  -@comments.each do |comment|
+    = render 'posts/post', post: Post.find_by_id(comment.post_id)
+- else
+  .text-center.lightgray
+    %h2 This user hasn't commented on anything
+    %br
+    .text200
+      %span.fa.fa-comments-o

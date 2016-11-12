@@ -1,0 +1,19 @@
+%h1.text-center
+  \#
+  = params[:hashtag]
+- if @hashtagged
+  - @hashtagged.each do |hashtagged|
+    = render_hashtaggable hashtagged
+- else
+  %p
+    .text-center
+      The hashtag
+      = params[:hashtag]
+      does not exist
+
+      %br/
+      %hr/
+
+      Click
+      = link_to "here", browse_posts_path
+      to browse all posts

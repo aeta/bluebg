@@ -1,0 +1,14 @@
+= render 'post', post: @post
+.text-center
+  - if @post.user == current_user
+    =link_to "Go Back", posts_path
+    |
+    =link_to "Edit", edit_post_path(@post)
+    %br/
+    %br/
+    %br/
+  - else
+    =link_to "Go Back", posts_path
+    %br/
+    %br/
+    %br/

@@ -1,0 +1,18 @@
+= render 'userinfo'
+
+- if @user.followers.count > 0
+  .text-center
+    %h3 Followers of
+    = @user.user_name
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        %ul.notification-index-list
+          -@followers.each do |follower|
+            = render 'profiles/userlist', user: follower
+- else
+  .text-center.lightgray
+    %h2 This user doesn't have any followers
+    %br
+    .text200
+      %span.fa.fa-frown-o

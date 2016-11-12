@@ -1,0 +1,21 @@
+.login-bg
+  .container
+    .row
+      .col-md-4.col-md-offset-4
+        .log-in.panel
+          .panel-heading
+            %h2 Log In
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .error_notification
+              = f.error_notification
+            .panel-body
+              = f.input :user_name, required: true, autofocus: true, label: false, placeholder: 'Username', input_html: { class: 'form-control' }
+              %br/
+              = f.input :password, required: true, label: false, placeholder: 'Password', input_html: { class: 'form-control' }
+              %br/
+              = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+              %br/
+              = f.button :submit, "Log in", class: 'btn btn-lg btn-primary btn-block'
+              %br/
+              %p.text-center New?
+              = link_to "Sign up here", new_user_registration_path

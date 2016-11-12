@@ -1,0 +1,12 @@
+.dropdown.notification-dropdown
+  %button.btn.btn-default.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
+    = current_user.notifications.where(read: false).count
+    %span.glyphicon.glyphicon-inbox
+  %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
+    - if current_user.notifications.where(read: false).count == 0
+      %li.dropdown-header.text-center All caught up!
+    - else
+      %li.dropdown-header.text-center Notifications
+      = render current_user.notifications.where(read: false).order('created_at DESC').last(6)
+      %li.divider{ role: 'separator' }
+        %li.text-center= link_to 'View all', notifications_path

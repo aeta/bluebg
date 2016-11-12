@@ -1,0 +1,41 @@
+.posts-wrapper
+  .row.profile-header
+    .col-md-6
+      .img-circle
+        = link_to profile_avatar_select(@user), profile_path(@user.user_name)
+    .col-md-6
+      .user-name-and-follow
+        %h3.profile-user-name
+          - if @user.verified == 1
+            = @user.user_name
+            = fa_icon "check-circle", class: 'verified'
+          - else
+            = @user.user_name
+        %span
+          - if user_signed_in?
+            - if @user == current_user
+              = link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn edit-button'
+            - else
+              - if current_user_is_following(current_user.id, @user.id)
+                = link_to 'Following', unfollow_user_path, remote: true, class: 'btn unfollow-button', id: 'unfollow-button', method: :post
+              - else
+                = link_to 'Follow', follow_user_path, remote: true, class: 'btn follow-button', id: 'follow-button', method: :post
+          - else
+      %h4.profile-realname
+        - if @user.name?
+          = @user.name
+      %p
+      - if @user.location?
+        %span.glyphicon.glyphicon-map-marker
+        = @user.location
+      %p.profile-bio
+        = @user.bio
+      .user-statistics
+        %p
+          = pluralize @user.posts.count, 'post'
+          |
+          = link_to user_follower_count(@user), followers_path(@user.user_name)
+          |
+          = link_to user_following_count(@user), following_path(@user.user_name)
+          |
+          = link_to user_like_count(@user), likes_path(@user.user_name)

@@ -1,0 +1,33 @@
+.posts-wrapper
+  .post
+    .post-head
+      .thumb-img
+      .user-name
+        = link_to post.user.user_name, profile_path(post.user.user_name)
+      .time-ago
+        = time_ago_in_words post.created_at
+    .image.center-block
+      =link_to (image_tag post.image.url(:medium), class:'imgresponsive'), post_path(post)
+    .post-bottom
+      = render 'posts/likes', post: post
+      %hr/
+      .caption
+        .user-name
+          = link_to post.user.user_name, profile_path(post.user.user_name)
+        = linkify_hashtags(post.caption)
+        %hr
+      .comments{id: "comments_#{post.id}"}
+        - if post.comments.any?
+          = render post.comments.last(4), post: post
+          .paginator{id: "#comments-paginator-#{post.id}"}
+            - unless post.comments.count <= 4
+              = link_to "view all #{post.comments.count} comments", post_comments_path(post), remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"}
+    .comment-like-form.row
+      .like-button.col-sm-1
+        - if user_signed_in?
+          =link_to '', "#{liked_post_link post}", remote: true, id: "like_#{post.id}", class: "glyphicon #{liked_post post}"
+        - else
+          =link_to '', new_user_session_path, class: "glyphicon glyphicon-heart-empty"
+      .comment-form.col-sm-11
+        = form_for([post, post.comments.new], remote: true) do |f|
+          = f.text_field :context, placeholder: 'Add a comment', class: "comment_content", id: "comment_content#{post.id}"

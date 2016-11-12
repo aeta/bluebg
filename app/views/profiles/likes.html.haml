@@ -1,0 +1,15 @@
+= render 'userinfo'
+
+- if @user.votes.up.count > 0
+  .text-center
+    %h3 Posts liked by
+    = @user.user_name
+
+  -@posts.each do |post|
+    = render 'posts/post', post: post
+- else
+  .text-center.lightgray
+    %h2 This user hasn't liked anything
+    %br
+    .text200
+      %span.fa.fa-heartbeat

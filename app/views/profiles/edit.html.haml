@@ -1,0 +1,25 @@
+.posts-wrapper
+  .post
+    .post-body
+      .image-wrap
+        = simple_form_for @user, url: {action: "update"}, html: { multipart: true } do |f|
+          .row
+            .col-md-12
+              .form-group.text-center
+                %h4 Change your profile image:
+                .img-circle.avatar-image.profile-image-2
+                  = profile_avatar_select(@user)
+                .filecontainer
+                  %input#user_avatar.fileinput-button{:name => "user[avatar]", :onchange => "loadFile(event)", :type => "file"}/
+          .row
+            .col-md-12
+              .text-center.small-margin
+                %h4 Name
+                = f.input :name, required: false, label: false, placeholder: 'Name', input_html: { class: 'form-control', rows: 1, maxlength: 20 }
+                %h4 Bio
+                = f.input :bio, required: false, label: false, placeholder: 'Bio', input_html: { class: 'form-control', rows: 4, maxlength: 120 }
+                %h5 Location
+                = f.input :location, required: false, label: false, placeholder: 'Location', input_html: { class: 'form-control', rows: 1 }
+                %br/
+          .form-group.text-center
+            = f.button :submit, 'Update Profile', class: 'btn btn-success'
