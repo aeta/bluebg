@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   get 'relationships/unfollow_user'
 
+  get 'eye_exit', to: 'posts#eye_exit', as: :eye_exit
+  get 'eye_open', to: 'posts#eye_open', as: :eye_open
+
   post ':user_name/follow_user', to: 'relationships#follow_user', as: :follow_user
   post ':user_name/unfollow_user', to: 'relationships#unfollow_user', as: :unfollow_user
 

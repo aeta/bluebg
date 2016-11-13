@@ -481,9 +481,14 @@ margin: 0 0 10px 0;
  }
 
  .naa {
+   z-index: 20;
    position: fixed;
    display: none;
    background-color: rgba(0, 0, 0, 0.5);
    width: 100%;
    height: 100%;
+ }
+
+ .opener {
+   z-index: 21;
  }

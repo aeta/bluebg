@@ -12,6 +12,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def eye_exit
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
+
+  def eye_open
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
+
   def browse
     @posts = Post.all.order('created_at DESC').page params[:page]
   end

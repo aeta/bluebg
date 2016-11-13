@@ -18,7 +18,7 @@
           %li
             = link_to "", new_post_path, class: 'glyphicon glyphicon-edit'
           %li
-            = link_to "", "", class: 'glyphicon glyphicon-eye-open opener'
+            = link_to '', eye_exit_path, remote: true, class: 'glyphicon glyphicon-eye-open opener', id: 'eye-button', method: :post
           %li
             = link_to "", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out'
         - else
