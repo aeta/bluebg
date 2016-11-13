@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
     :all => "-grayscale Rec709Luminance -fill 'blue' -tint 60"
   },
   styles: {
-            :medium => "640x"
+            :medium => "1920x"
           }
   validates_attachment_content_type :image, :content_type =>
  /\Aimage\/.*\Z/
