@@ -21,7 +21,7 @@
  */
 
 .verified {
-  color: #1dcaff;
+  color: #2980b9;
 }
 
 .text200 {
@@ -49,13 +49,13 @@
 
  .unfollow-button {
    text-transform: uppercase;
-   border-color: #66bd2b;
-   background-color: #66bd2b;
+   border-color: #2980b9;
+   background-color: #2980b9;
    color: white;
    margin-left: 20px;
    &:visited, &:focus, &:hover {
-     border-color: #47821F;
-     background-color: #47821F;
+     border-color: #2980b9;
+     background-color: #2980b9;
      color: white;
    }
  }
@@ -132,7 +132,7 @@ a:hover {
   }
 
   a {
-    color: red;
+    color: #2980b9;
   }
 }
 
@@ -233,7 +233,7 @@ width:642px;
  }
 
 .btn-lg {
-    background-color: #125688;
+    background-color: #2980b9;
     transition: all 0.3s ease 0s;
 }
 
@@ -301,14 +301,14 @@ margin: 0 0 10px 0;
 
  .navbar-brand {
      a {
-         color: #125688;
+         color: #2980b9;
      }
  }
  .navbar-default {
      background-color: #fff;
      height: 54px;
      .navbar-nav li a {
-         color: #125688;
+         color: #2980b9;
      }
  }
  .navbar-container {
@@ -324,6 +324,7 @@ margin: 0 0 10px 0;
      width: 100%;
  }
  .post {
+    box-shadow: 0 4px 8px 0 rgba(41, 128, 185, 0.2), 0 6px 20px 0 rgba(41, 128, 185, 0.19);
      background-color: #fff;
      border-color: #edeeee;
      border-style: solid;
@@ -336,7 +337,7 @@ margin: 0 0 10px 0;
          padding-left: 24px;
          padding-right: 24px;
          padding-top: 24px;
-         color: #125688;
+         color: #2980b9;
          font-size: 15px;
          line-height: 18px;
          .user-name, .time-ago {
@@ -365,7 +366,7 @@ margin: 0 0 10px 0;
      .user-name {
          font-weight: 590;
          margin-right: 0.3em;
-         color: #125688;
+         color: #2980b9;
          font-size: 15px;
      }
      .user-name,
@@ -455,4 +456,12 @@ margin: 0 0 10px 0;
      to {
          opacity: 1;
      }
+ }
+
+ .btn-primary, .btn-success {
+   background-color: #2980b9;
+ }
+
+ img {
+   box-shadow: 0 4px 8px 0 rgba(41, 128, 185, 0.2), 0 6px 20px 0 rgba(41, 128, 185, 0.19);
  }

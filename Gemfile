@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'haml'
 
+gem 'active_hash_relation'
+
+gem 'active_model_serializers', '~> 0.10.2'
+
 gem 'simple_hashtag'
 
 gem 'acts_as_votable', '~> 0.10.0'

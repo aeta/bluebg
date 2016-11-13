@@ -14,7 +14,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:user_name]
 
-  has_attached_file :avatar, styles: { medium: '152x152#' }
+  has_attached_file :avatar,
+  convert_options: {
+    :all => "-grayscale Rec709Luminance -fill 'blue' -tint 60"
+  },
+  styles: { medium: '152x152#' }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def follow(user_id)
