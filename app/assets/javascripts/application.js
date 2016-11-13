@@ -25,3 +25,10 @@ $('document').ready(function() {
   }, 3000);
 
 });
+
+$(function() {
+    $('.opener').click(function() {
+        $('.naa').toggle('slow');
+        return false;
+    });
+});

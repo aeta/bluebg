@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
 
   get 'all', to: 'posts#browse', as: :browse_posts
+  get 'find', to: 'profiles#browse', as: :browse_users
 
   get 'profiles/show'
 

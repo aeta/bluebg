@@ -6,6 +6,10 @@ class ProfilesController < ApplicationController
     @posts = @user.posts.order('created_at DESC')
   end
 
+  def browse
+    @users = User.all
+  end
+
   def likes
     @posts = @user.votes.up.votables
   end

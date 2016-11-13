@@ -13,9 +13,16 @@
     %meta{:content => "#ffffff", :name => "theme-color"}/
   %body
 
+    .naa
+      %p.text-center.middo
+        = link_to 'All Posts', browse_posts_path
+        %br/
+        = link_to 'Find Users', browse_users_path
 
 
     = render 'layouts/navbar'
+
+
 
     .container.flash
       -flash.each do |name, msg|

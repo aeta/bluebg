@@ -1,0 +1,9 @@
+.text-center
+  %h3 All Users
+
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      %ul.notification-index-list
+        - @users.each do |user|
+          = render 'profiles/userlist', user: user
