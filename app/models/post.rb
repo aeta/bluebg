@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   validates :image, presence: true
   has_attached_file :image,
   convert_options: {
-    :all => "-grayscale Rec709Luminance -colorize '0, 0, 150'"
+    :all => "-grayscale Rec709Luminance -fill 'blue' -tint 60"
   },
   styles: {
             :medium => "640x"
